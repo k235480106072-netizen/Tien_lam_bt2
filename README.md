@@ -80,6 +80,9 @@ GO
 USE [QuanLyNhanSu_K235480106072];
 
 ```
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/9b489776-ee2c-46d2-95be-f578aad87726" />
+Tạo cơ sở dữ liệu
+
 
 
 ```sql
@@ -91,8 +94,15 @@ CREATE TABLE [PhongBan] (
 );
 GO
 ```
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/376dd666-2c12-4c42-88f9-f19321e994a4" />
+Bảng PhongBan
+
+
+
 
 /* Bảng NhanVien */
+
+```sql
 CREATE TABLE [NhanVien] (
     [MaNV]            INT           PRIMARY KEY IDENTITY(1,1),
     [HoTen]           NVARCHAR(100) NOT NULL,
@@ -104,8 +114,17 @@ CREATE TABLE [NhanVien] (
         CHECK ([NgaySinh] < GETDATE())               -- Ngày sinh phải < ngày hiện tại
 );
 GO
+```
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/a89cf659-5b78-4bd7-a202-793ee90f912e" />
+
+Bảng NhanVien
+
 
 /* Bảng LuongThang */
+
+
+```sql
 CREATE TABLE [LuongThang] (
     [MaLuong]         INT           PRIMARY KEY IDENTITY(1,1),
     [MaNV]            INT           NOT NULL,
@@ -119,12 +138,151 @@ CREATE TABLE [LuongThang] (
 GO
 ```
 
-> **Kết quả thực thi**:
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/2cd6602c-d782-4b1f-bd7b-3ff99f83cf39" />
 
 
+Bảng LuongThang
 
 
+## Chèn dữ liệu mẫu
 
+```sql
+-- Insert sample data into PhongBan
+INSERT INTO dbo.[PhongBan] ([MaPhong], [TenPhong]) VALUES
+-- Thêm 40 phòng ban mẫu
+(1, N'Phòng Kỹ Thuật'),
+(2, N'Phòng Kế Toán'),
+(3, N'Phòng Nhân Sự'),
+(4, N'Phòng Marketing'),
+(5, N'Phòng Bán Hàng'),
+(6, N'Phòng Hành Chính'),
+(7, N'Phòng Nghiên Cứu'),
+(8, N'Phòng Dịch Vụ'),
+(9, N'Phòng Thiết Kế'),
+(10, N'Phòng Phát Triển'),
+(11, N'Phòng Vận Hành'),
+(12, N'Phòng Quản Lý Dự Án'),
+(13, N'Phòng Kiểm Định'),
+(14, N'Phòng Đào Tạo'),
+(15, N'Phòng An Ninh'),
+(16, N'Phòng Y Tế'),
+(17, N'Phòng Môi Trường'),
+(18, N'Phòng Thể Dục'),
+(19, N'Phòng Văn Hóa'),
+(20, N'Phòng Thông Tin'),
+(21, N'Phòng Pháp Lý'),
+(22, N'Phòng Đấu Thầu'),
+(23, N'Phòng Năng Lượng'),
+(24, N'Phòng Công Nghệ'),
+(25, N'Phòng Quản Trị'),
+(26, N'Phòng Bảo Trì'),
+(27, N'Phòng Vật Tư'),
+(28, N'Phòng Kế Hoạch'),
+(29, N'Phòng Tài Chính'),
+(30, N'Phòng Đầu Tư'),
+(31, N'Phòng Quỹ'),
+(32, N'Phòng Dự Báo'),
+(33, N'Phòng Thư Kiến'),
+(34, N'Phòng Mua Sắm'),
+(35, N'Phòng Thẩm Định'),
+(36, N'Phòng Hậu Cần'),
+(37, N'Phòng Quản Lý Rủi Ro'),
+(38, N'Phòng Thông Tin Kỹ Thuật'),
+(39, N'Phòng Phản Hồi'),
+(40, N'Phòng Khác');
+
+-- Insert sample data into NhanVien (40 nhân viên)
+INSERT INTO dbo.[NhanVien] ([HoTen], [NgaySinh], [MaPhong]) VALUES
+(N'Nguyen Van A', '1990-01-15', 1),
+(N'Le Thi B', '1992-05-20', 2),
+(N'Tran Van C', '1988-09-30', 3),
+(N'Pham Thi D', '1991-03-12', 4),
+(N'Hoang Van E', '1993-07-08', 5),
+(N'Vu Thi F', '1989-11-25', 6),
+(N'Dinh Van G', '1994-02-14', 7),
+(N'Nguyen Thi H', '1995-06-19', 8),
+(N'Le Van I', '1990-09-05', 9),
+(N'Tran Thi J', '1992-12-22', 10),
+(N'Pham Van K', '1991-04-03', 11),
+(N'Hoang Thi L', '1993-08-17', 12),
+(N'Vu Van M', '1994-10-30', 13),
+(N'Dinh Thi N', '1996-01-11', 14),
+(N'Nguyen Van O', '1990-02-28', 15),
+(N'Le Van P', '1992-05-06', 16),
+(N'Tran Thi Q', '1995-07-23', 17),
+(N'Pham Van R', '1991-09-14', 18),
+(N'Hoang Thi S', '1993-11-27', 19),
+(N'Vu Van T', '1994-03-05', 20),
+(N'Dinh Van U', '1990-06-18', 21),
+(N'Nguyen Thi V', '1992-08-31', 22),
+(N'Le Van W', '1995-10-12', 23),
+(N'Tran Van X', '1991-12-25', 24),
+(N'Pham Thi Y', '1993-02-07', 25),
+(N'Hoang Van Z', '1994-04-20', 26),
+(N'Vu Thi AA', '1990-07-02', 27),
+(N'Dinh Van BB', '1992-09-15', 28),
+(N'Nguyen Van CC', '1995-11-28', 29),
+(N'Le Thi DD', '1991-01-10', 30),
+(N'Tran Van EE', '1993-03-23', 31),
+(N'Pham Van FF', '1994-05-05', 32),
+(N'Hoang Thi GG', '1990-08-18', 33),
+(N'Vu Van HH', '1992-10-31', 34),
+(N'Dinh Thi II', '1995-12-13', 35),
+(N'Nguyen Van JJ', '1991-02-26', 36),
+(N'Le Van KK', '1993-04-10', 37),
+(N'Tran Thi LL', '1994-06-22', 38),
+(N'Pham Van MM', '1990-09-04', 39),
+(N'Hoang Van NN', '1992-11-18', 40);
+
+-- Insert sample data into LuongThang (40 bản ghi lương)
+INSERT INTO dbo.[LuongThang] ([MaNV], [Thang], [Luong]) VALUES
+-- Cập nhật lương tháng 5/2026 cho 40 nhân viên
+(1, '2026-05-01', 10000000),
+(2, '2026-05-01', 12000000),
+(3, '2026-05-01', 11000000),
+(4, '2026-05-01', 10500000),
+(5, '2026-05-01', 11500000),
+(6, '2026-05-01', 9500000),
+(7, '2026-05-01', 10800000),
+(8, '2026-05-01', 11200000),
+(9, '2026-05-01', 10300000),
+(10, '2026-05-01', 11900000),
+(11, '2026-05-01', 10100000),
+(12, '2026-05-01', 10700000),
+(13, '2026-05-01', 11100000),
+(14, '2026-05-01', 10600000),
+(15, '2026-05-01', 10400000),
+(16, '2026-05-01', 11700000),
+(17, '2026-05-01', 10200000),
+(18, '2026-05-01', 10900000),
+(19, '2026-05-01', 11300000),
+(20, '2026-05-01', 11800000),
+(21, '2026-05-01', 10050000),
+(22, '2026-05-01', 11550000),
+(23, '2026-05-01', 10850000),
+(24, '2026-05-01', 11250000),
+(25, '2026-05-01', 10450000),
+(26, '2026-05-01', 10650000),
+(27, '2026-05-01', 10950000),
+(28, '2026-05-01', 11150000),
+(29, '2026-05-01', 10350000),
+(30, '2026-05-01', 10750000),
+(31, '2026-05-01', 11050000),
+(32, '2026-05-01', 11280000),
+(33, '2026-05-01', 11520000),
+(34, '2026-05-01', 11760000),
+(35, '2026-05-01', 10120000),
+(36, '2026-05-01', 10380000),
+(37, '2026-05-01', 10640000),
+(38, '2026-05-01', 10900000),
+(39, '2026-05-01', 11160000),
+(40, '2026-05-01', 11420000);
+GO
+```
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/e87770f2-eddf-420c-8aa8-049c03d19a90" />
+Chèn dữ liệu vào các bảng
 
 ## PHẦN 2: FUNCTON (Hàm)
 
@@ -136,9 +294,20 @@ GO
 | **GETDATE()** | Trả về ngày‑giờ hiện tại của server | `SELECT GETDATE();` |
 | **LEN(string)** | Độ dài chuỗi ký tự | `SELECT LEN(N'Hello');` |
 | **ROUND(number, d)** | Làm tròn số tới *d* chữ số thập phân | `SELECT ROUND(123.4567,2);` |
-| **COALESCE(expr1,expr2, …)** | Trả về giá trị không NULL đầu tiên | `SELECT COALESCE(NULL, 5, 10);` |
 
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/d538e099-3b8f-4ec3-9eb0-ce81d673cf95" />
+
+Trả về ngày‑giờ hiện tại của server
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/71b62659-b5c8-48a3-9a31-653937eb633c" />
+
+
+Độ dài chuỗi ký tự
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6603bcd4-bfe9-4ba9-a002-ed76a0f83f5d" />
+
+Làm tròn số tới *d* chữ số thập phân
 
 ### 2.2 User‑Defined Functions
 #### 2.2.1 Scalar Function – Tính tuổi nhân viên
@@ -166,8 +335,18 @@ END;
 GO
 ```
 
+Hàm thực thi
+
+
+SELECT dbo.fn_TinhTuoi('1990-01-01') AS Tuoi;
+
+
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Kết quả hàm fn_TinhTuoi]
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/9a2495ae-e9a4-40ce-b0e0-7b4b0bac9694" />
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/8a0c66af-326a-464d-9111-7932c611bf7a" />
+Tạo và thực thi hàm fn_TinhTuoi
+
 
 #### 2.2.2 Inline Table‑valued Function – Lọc nhân viên theo phòng
 
@@ -187,10 +366,17 @@ SELECT  [MaNV], [HoTen], [NgaySinh]
 FROM    dbo.[NhanVien]
 WHERE   [MaPhong] = @MaPhong;
 GO
+
+SELECT * FROM dbo.fn_NhanVienTheoPhong(1);
+
 ```
 
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Kết quả fn_NhanVienTheoPhong]
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/a20b3b00-5663-42b9-8471-c1524c671a67" />
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/057be245-1eb7-436f-9943-a8429e688886" />
+
+Tạo và thực thi hàm trả về danh sách nhân viên theo phòng
 
 #### 2.2.3 Multi‑statement Table‑valued Function – Tính thuế thu nhập lũy tiến
 
@@ -222,10 +408,16 @@ BEGIN
     RETURN;
 END;
 GO
-```
 
+SELECT * FROM dbo.fn_TinhThueThuNhap(6000000);
+```
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Kết quả fn_TinhThueThuNhap]
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/5b105989-56e7-49ad-87e3-e8cd1ccbca90" />
+
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b02a5344-894e-4f40-a411-77b79847166f" />
+
+ Kết quả tạo và thực thi hàm fn_TinhThueThuNhap
 
 ---
 
@@ -278,7 +470,10 @@ GO
 ```
 
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Thực thi sp_ThemNhanVien]
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/a6fd31cb-8237-4736-a8e7-f0ec59b4615a" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/b5fc2d1d-d6a9-4cff-b974-50399755b729" />
+
+Thực thi sp_ThemNhanVien tự động thêm nhân viên
 
 #### 3.2.2 sp_TongQuyLuong – Tổng quỹ lương (OUTPUT)
 
@@ -315,7 +510,12 @@ GO
 ```
 
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Gọi thủ tục sp_TongQuyLuong và in ra biến OUTPUT]
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/53c117b2-e75d-474e-8a76-fd073e4b2bb7" />
+
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/9d27bb23-e7b4-4875-838d-f2283a418cba" />
+
+Gọi thủ tục sp_TongQuyLuong và in ra biến OUTPUT
 
 #### 3.2.3 sp_BaoCaoNhanSu – Join 3 bảng để báo cáo
 
@@ -349,7 +549,10 @@ GO
 ```
 
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Kết quả bảng báo cáo từ sp_BaoCaoNhanSu]
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/179105ef-aa1c-4de2-ad7a-52b982aff275" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6342d930-c772-4427-a5be-2492d5055732" />
+
+Kết quả bảng báo cáo từ sp_BaoCaoNhanSu
 
 ---
 
@@ -394,6 +597,8 @@ GO
 ```
 
 > **Kết quả thực thi**:
+<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/ab1cc450-e75b-4e26-87dc-02852ac2abe6" />
+
 > ![Ảnh chụp màn hình: Thêm 1 nhân viên và SELECT lại bảng PhongBan thấy số lượng tăng 1]
 
 
@@ -453,7 +658,9 @@ DEALLOCATE cur_ThongBaoLuong;
 ```
 
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Tab Messages hiển thị dòng chữ Chào... mức lương của bạn là...]
+<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/15528b7f-a5b4-4edc-9357-686d70bccbef" />
+
+Tab Messages hiển thị dòng chữ Chào... mức lương của bạn là...
 
 
 
@@ -468,6 +675,8 @@ Phải mở con trỏ, lặp qua từng dòng, đọc dữ liệu, cập nhật,
 UPDATE dbo.[LuongThang]
 SET [Luong] = [Luong] * 1.1;
 ```
+![Uploading image.png…]()
+
 
 **So sánh hiệu năng**:
 - **Tốc độ**: Lệnh `UPDATE` (Set-based) xử lý toàn bộ tập hợp dữ liệu cùng một lúc, nhanh hơn Cursor từ 10-100 lần trên tập dữ liệu lớn vì nó tối ưu hóa I/O và Transaction Log.
