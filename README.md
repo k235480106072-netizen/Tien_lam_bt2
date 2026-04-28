@@ -6,8 +6,8 @@
 
 **Lớp:** K59KMT.K01
 
-**Đề tài:** Hệ thống **Quản lý nhân sự** 
-**Ngày nộp:** 03/05/2026
+**Đề tài:** Quản lý nhân sự
+
 
 ---
 
@@ -289,6 +289,50 @@ Chèn dữ liệu vào các bảng
 
 
 ### 2.1 Built‑in Functions (các hàm có sẵn)
+# Trả lời: Các loại Built-in Function trong SQL Server
+
+Trong SQL Server có rất nhiều **Built-in Function (hàm có sẵn)** giúp xử lý dữ liệu nhanh chóng mà không cần tự viết lại logic.  
+Các hàm này được chia thành các nhóm chính như sau:
+
+---
+
+## 🔹 1. Hàm xử lý chuỗi (String Functions)
+
+**Chức năng:** Xử lý dữ liệu dạng chuỗi ký tự  
+
+
+## 🔹 2. Hàm số học (Mathematical Functions)
+
+**Chức năng:** Thực hiện các phép toán số  
+
+
+## 🔹 3. Hàm ngày giờ (Date and Time Functions)
+
+**Chức năng:** Xử lý dữ liệu ngày tháng  
+
+## 🔹 4. Hàm chuyển đổi kiểu (Conversion Functions)
+
+**Chức năng:** Chuyển đổi giữa các kiểu dữ liệu  
+
+## 🔹 5. Hàm tổng hợp (Aggregate Functions)
+
+**Chức năng:** Tính toán trên nhiều dòng dữ liệu  
+
+
+## 🔹 6. Hàm logic (Logical Functions)
+
+**Chức năng:** Xử lý điều kiện  
+
+## 🔹 7. Hàm hệ thống (System Functions)
+
+**Chức năng:** Trả về thông tin hệ thống
+
+## ✅ Kết luận
+Các Built-in Function trong SQL Server giúp:
+- Xử lý dữ liệu nhanh chóng  
+- Giảm độ phức tạp khi viết truy vấn  
+- Tăng hiệu suất và tính linh hoạt của hệ thống
+- 
 | Hàm | Mô tả | Ví dụ |
 |-----|-------|-------|
 | **GETDATE()** | Trả về ngày‑giờ hiện tại của server | `SELECT GETDATE();` |
@@ -428,15 +472,97 @@ SELECT * FROM dbo.fn_TinhThueThuNhap(6000000);
 
 
 ### 3.1 System Stored Procedures (hệ thống)
-| SP | Mô tả |
-|----|-------|
-| **sp_help** | Hiển thị cấu trúc, cột, ràng buộc của một đối tượng (bảng, view, …). |
-| **sp_rename** | Đổi tên một đối tượng (bảng, cột, …). |
-| **sp_who** | Kiểm tra các session đang kết nối tới SQL Server. |
 
+Trong SQL Server có rất nhiều **Stored Procedure (SP) có sẵn** gọi là **System Stored Procedure**, được chia thành một số nhóm chính như sau:
+
+## 🔹 Các loại System Stored Procedure
+
+- **Metadata SP** (truy vấn thông tin hệ thống):  
+  Ví dụ: `sp_help`, `sp_columns`, `sp_tables`  
+
+- **Security SP** (quản lý bảo mật, quyền):  
+  Ví dụ: `sp_addlogin`, `sp_adduser`, `sp_addrolemember`  
+
+- **Database Management SP** (quản lý cơ sở dữ liệu):  
+  Ví dụ: `sp_rename`, `sp_spaceused`, `sp_databases`  
+
+- **Execution SP** (thực thi lệnh động):  
+  Ví dụ: `sp_executesql`  
+
+- **System Monitoring SP** (theo dõi hệ thống):  
+  Ví dụ: `sp_who`, `sp_who2`  
+
+---
+
+## Ví dụ 1: sp_help
+
+**Chức năng:**  
+Hiển thị thông tin chi tiết của một bảng hoặc đối tượng trong database.
+
+**Cách dùng:**
+```sql
+sp_help 'ten_bang'
+```
+
+**Ví dụ:**
+```sql
+sp_help 'NhanVien'
+```
+
+**Giải thích:**  
+Lệnh này sẽ trả về:
+- Danh sách các cột trong bảng  
+- Kiểu dữ liệu  
+- Ràng buộc (constraints)  
+- Index  
+
+---
+
+
+<img width="1914" height="1079" alt="image" src="https://github.com/user-attachments/assets/4548b02d-a204-4fa8-95f7-4936f3085c09" />
+Hiển thị thông tin chi tiết của một bảng hoặc đối tượng trong database
+
+## Ví dụ 2: sp_helptext
+
+**Chức năng:**  
+
+Hiển thị nội dung mã nguồn của Stored Procedure, View hoặc Trigger.
+
+**Cách dùng:**
+```sql
+sp_helptext 'ten_object'
+```
+
+**Ví dụ:**
+```sql
+sp_helptext 'sp_TinhLuong'
+```
+
+**Giải thích:**  
+Lệnh này giúp:
+- Xem lại code đã viết  
+- Kiểm tra logic của Stored Procedure  
+- Hỗ trợ debug và chỉnh sửa  
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/afdc37e3-ca72-4d26-ab20-d1e15cc0e43c" />
+
+Hiển thị nội dung mã nguồn của Stored Procedure
+
+---
+
+## Kết luận
+
+System Stored Procedure giúp:
+
+- Quản lý database hiệu quả
+  
+- Kiểm tra cấu trúc và dữ liệu nhanh chóng
+  
+- Hỗ trợ lập trình và debug hệ thống  
 
 
 ### 3.2 User‑Defined Stored Procedures
+
 #### 3.2.1 SP_ThemNhanVien – Thêm nhân viên mới (có kiểm tra logic)
 
 **Mục đích:** Thêm một nhân viên mới vào hệ thống. Trước khi INSERT, thủ tục kiểm tra phòng ban có tồn tại hay không – nếu không sẽ báo lỗi bằng `RAISERROR` và dừng xử lý, đảm bảo tính toàn vẹn dữ liệu.
@@ -597,24 +723,215 @@ GO
 ```
 
 > **Kết quả thực thi**:
-<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/ab1cc450-e75b-4e26-87dc-02852ac2abe6" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/fab486ae-be5a-447d-9572-6eefe7594da3" />
 
-> ![Ảnh chụp màn hình: Thêm 1 nhân viên và SELECT lại bảng PhongBan thấy số lượng tăng 1]
+ Thêm 1 nhân viên và SELECT lại bảng PhongBan thấy số lượng tăng 1
 
 
 
-### 4.2 Hiện tượng đệ quy (Recursive Trigger)
-**Kịch bản**: 
-Tôi đã thử tạo Trigger A trên bảng `[PhongBan]` tự động cập nhật lại bảng `[NhanVien]` (ví dụ: set trạng thái nghỉ việc nếu phòng đóng cửa), và Trigger B trên `[NhanVien]` (như trên) lại cập nhật số lượng của `[PhongBan]`.
+###  Thử viết Trigger tạo vòng lặp đệ quy (Circular Trigger)
 
-**Kết quả**: 
-SQL Server báo lỗi vượt quá giới hạn mức lồng (Maximum nesting level exceeded) do vòng lặp vô tận: A gọi B -> B gọi A -> A gọi B... (Tối đa 32 mức lồng trong SQL Server).
+#### Kịch bản thử nghiệm
 
-**Nhận xét**: 
-Cần hết sức cẩn thận khi thiết kế Trigger. Hạn chế tối đa việc thiết kế các Trigger chéo nhau (vòng lặp) để tránh gây treo hệ thống (Deadlock) và tràn bộ nhớ.
+Để minh hoạ hiện tượng đệ quy Trigger, ta sẽ tạo hai Trigger hoạt động **ngược chiều nhau**:
+
+| Trigger | Đặt trên bảng | Sự kiện | Hành động |
+|---------|--------------|---------|-----------|
+| `trg_PhongBan_UpdateNhanVien` | `[PhongBan]` | `AFTER UPDATE` | Khi `SoLuongNhanVien` thay đổi → cập nhật cột `[MaPhong]` ngược lại sang `[NhanVien]` (giả lập: di chuyển toàn bộ NV sang phòng mặc định nếu phòng bị đặt = 0 nhân viên) |
+| `trg_NhanVien_CapNhatSiSo` | `[NhanVien]` | `AFTER INSERT, UPDATE, DELETE` | Khi `[NhanVien]` thay đổi → cập nhật lại `SoLuongNhanVien` trong `[PhongBan]` |
+
+Hai trigger này tạo thành **vòng lặp**:  
+`INSERT NhanVien` → `trg_NhanVien_CapNhatSiSo` cập nhật `PhongBan` → `trg_PhongBan_UpdateNhanVien` cập nhật `NhanVien` → `trg_NhanVien_CapNhatSiSo` lại kích hoạt → ... vô tận.
+
+---
+
+#### Bước 1 – Tạo Trigger A trên bảng `[PhongBan]`
+
+**Logic:** Khi `SoLuongNhanVien` của một phòng bị cập nhật về `0` (phòng trống), Trigger A tự động chuyển tất cả nhân viên còn sót lại của phòng đó sang `MaPhong = 1` (phòng mặc định).
+
+```sql
+-- =============================================
+-- TRIGGER A: PhongBan → NhanVien
+-- Khi SoLuongNhanVien = 0, chuyển NV về phòng 1
+-- =============================================
+CREATE TRIGGER trg_PhongBan_UpdateNhanVien
+ON dbo.[PhongBan]
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Chỉ xử lý khi SoLuongNhanVien bị cập nhật về 0
+    IF UPDATE([SoLuongNhanVien])
+    BEGIN
+        UPDATE dbo.[NhanVien]
+        SET [MaPhong] = 1           -- chuyển về phòng mặc định (MaPhong = 1)
+        WHERE [MaPhong] IN (
+            SELECT i.[MaPhong]
+            FROM inserted  i
+            JOIN deleted   d ON i.[MaPhong] = d.[MaPhong]
+            WHERE i.[SoLuongNhanVien] = 0
+              AND d.[SoLuongNhanVien] > 0  -- chỉ khi vừa giảm về 0
+        );
+    END
+END;
+GO
+```
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/43621551-70c7-4540-ac67-db0a6732ef13" />
+
+
+Tạo Trigger A trên bảng
+---
+
+#### Bước 2 – Tạo Trigger B trên bảng `[NhanVien]`
+
+**Logic:** Bất cứ khi nào có hàng được `INSERT`, `UPDATE` hoặc `DELETE` trên `[NhanVien]`, Trigger B sẽ tính lại và cập nhật `SoLuongNhanVien` cho tất cả phòng ban bị ảnh hưởng.
+
+```sql
+-- =============================================
+-- TRIGGER B: NhanVien → PhongBan
+-- Tính lại SoLuongNhanVien sau mọi thay đổi NV
+-- =============================================
+CREATE TRIGGER trg_NhanVien_CapNhatSiSo
+ON dbo.[NhanVien]
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    -- Gộp danh sách MaPhong bị ảnh hưởng từ cả inserted lẫn deleted
+    DECLARE @AffectedPhong TABLE ([MaPhong] INT);
+
+    INSERT INTO @AffectedPhong
+    SELECT [MaPhong] FROM inserted
+    UNION
+    SELECT [MaPhong] FROM deleted;
+
+    -- Cập nhật lại đếm thực tế từ bảng NhanVien
+    UPDATE pb
+    SET pb.[SoLuongNhanVien] = (
+        SELECT COUNT(*)
+        FROM dbo.[NhanVien] nv
+        WHERE nv.[MaPhong] = pb.[MaPhong]
+    )
+    FROM dbo.[PhongBan] pb
+    WHERE pb.[MaPhong] IN (SELECT [MaPhong] FROM @AffectedPhong);
+END;
+GO
+```
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/43703960-c82d-45f6-86f5-8fa80f1e3003" />
+
+
+Tạo Trigger B trên bảng
+---
+
+#### Bước 3 – Kích hoạt vòng lặp và quan sát
+
+Thực thi lệnh INSERT để kích hoạt chuỗi đệ quy:
+
+```sql
+-- Lệnh này sẽ kích hoạt chuỗi trigger đệ quy
+INSERT INTO dbo.[NhanVien] ([HoTen], [NgaySinh], [MaPhong])
+VALUES (N'Test Recursive', '2000-01-01', 2);
+GO
+```
+
+---
 
 > **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: Thông báo lỗi đệ quy Trigger (Maximum nesting level exceeded)]
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/73bde0b8-e20b-4682-b485-8e9488ad2d67" />
+
+
+Thông báo lỗi Msg 217 – Maximum nesting level exceeded khi thực thi INSERT
+
+---
+
+#### Giải thích thông báo lỗi
+
+| Trường | Giá trị | Ý nghĩa |
+|--------|---------|---------|
+| **Msg** | 217 | Mã lỗi nội bộ của SQL Server |
+| **Level** | 16 | Mức độ nghiêm trọng (severity): Lỗi do người dùng gây ra, có thể khắc phục |
+| **State** | 1 | Trạng thái phụ dùng để debug nội bộ |
+| **Procedure** | `trg_NhanVien_CapNhatSiSo` | Trigger đang thực thi khi tràn ngăn xếp |
+| **Nội dung** | *Maximum nesting level exceeded (limit 32)* | Đã chạm đến giới hạn lồng nhau tối đa 32 cấp |
+
+**Diễn giải luồng thực thi:**
+
+```
+INSERT INTO NhanVien  (lệnh người dùng)
+
+trg_NhanVien_CapNhatSiSo  → UPDATE PhongBan.SoLuongNhanVien
+
+trg_PhongBan_UpdateNhanVien → UPDATE NhanVien.MaPhong
+
+trg_NhanVien_CapNhatSiSo  → UPDATE PhongBan.SoLuongNhanVien
+
+trg_PhongBan_UpdateNhanVien → UPDATE NhanVien.MaPhong
+  ...
+
+SQL Server dừng lại và ném ra Msg 217
+```
+
+SQL Server cho phép tối đa **32 cấp lồng nhau** (bao gồm cả stored procedure, function và trigger). Khi chuỗi đệ quy chạm đến cấp 32 mà không có điều kiện dừng, hệ thống buộc phải kết thúc và **rollback toàn bộ transaction** – tức là bản ghi INSERT ban đầu cũng bị huỷ.
+
+####  Nhận xét về hiện tượng đệ quy Trigger
+
+| Vấn đề | Phân tích |
+|--------|-----------|
+| **Nguyên nhân gốc** | Hai trigger cập nhật qua lại lẫn nhau mà không có điều kiện dừng, tạo ra vòng lặp vô tận |
+| **Hậu quả** | SQL Server ném lỗi Msg 217 và rollback toàn bộ transaction; dữ liệu không bị hỏng nhưng thao tác bị từ chối |
+| **Giới hạn hệ thống** | Tối đa 32 cấp lồng nhau – đây là cơ chế bảo vệ ngăn tràn call-stack |
+| **Rủi ro thực tế** | Trên hệ thống nhiều transaction đồng thời, vòng lặp trigger còn có thể gây **Deadlock** nếu hai session cùng khóa hai bảng theo thứ tự ngược nhau |
+| **Khuyến nghị** | (1) Thiết kế trigger theo **một chiều** – tránh cập nhật chéo bảng; (2) Nếu bắt buộc phải cập nhật sang bảng khác, thêm điều kiện `IF UPDATE(col)` và kiểm tra `inserted`/`deleted` để đảm bảo chỉ kích hoạt khi thực sự cần; (3) Dùng **cột cờ** (flag column) hoặc kiểm tra `@@NESTLEVEL` để thoát sớm khi đã ở cấp lồng > 1 |
+
+**Ví dụ kỹ thuật phòng tránh đệ quy bằng `@@NESTLEVEL`:**
+
+```sql
+-- Kỹ thuật chống đệ quy: chỉ chạy ở cấp lồng = 1
+CREATE TRIGGER trg_Safe_Example
+ON dbo.[PhongBan]
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    -- Nếu trigger đang được gọi lại từ một trigger khác thì thoát ngay
+    IF @@NESTLEVEL > 1 RETURN;
+
+    -- Logic nghiệp vụ thực sự ở đây...
+END;
+GO
+```
+#### Dọn dẹp – Xoá các Trigger thử nghiệm
+
+Sau khi quan sát, cần xoá ngay hai trigger thử nghiệm để tránh ảnh hưởng đến các phần tiếp theo:
+
+```sql
+-- Xóa trigger thử nghiệm
+DROP TRIGGER IF EXISTS dbo.trg_PhongBan_UpdateNhanVien;
+DROP TRIGGER IF EXISTS dbo.trg_NhanVien_CapNhatSiSo;
+GO
+
+-- Kiểm tra lại – không còn trigger nào trong danh sách
+SELECT name, type_desc, parent_class_desc
+FROM sys.triggers
+WHERE parent_id IN (
+    OBJECT_ID('dbo.PhongBan'),
+    OBJECT_ID('dbo.NhanVien')
+);
+GO
+```
+
+> **Kết quả thực thi**:
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/38aaf3d9-33b9-4e01-bb4a-d1cef311e359" />
+
+Kết quả SELECT sys.triggers – danh sách rỗng sau khi DROP
+
+> **Kết luận:** Trigger là công cụ mạnh nhưng cần được thiết kế **rất cẩn thận**. Quy tắc an toàn là: mỗi trigger chỉ cập nhật dữ liệu theo **một hướng** (từ bảng con lên bảng cha hoặc ngược lại, không bao giờ cả hai chiều đồng thời trên cùng một cặp bảng).
 
 ---
 
@@ -624,68 +941,503 @@ Cần hết sức cẩn thận khi thiết kế Trigger. Hạn chế tối đa v
 
 
 
-### 5.1 Sử dụng Cursor duyệt và in thông báo
-**Mục đích:** Duyệt từng nhân viên kèm mức lương hiện tại để in thông báo cá nhân hóa qua lệnh `PRINT`. Đây là tình huống điển hình mà Cursor phù hợp – khi cần xử lý logic riêng biệt cho từng dòng (ví dụ: gửi email, ghi log, v.v.).
+### 5.1 Sử dụng CURSOR – In thông báo lương cá nhân hoá kèm tính thuế lũy tiến
 
-**Luồng xử lý:**
-1. Khai báo biến `@TenNV` và `@LuongHienTai` để chứa dữ liệu từng dòng.
-2. Khai báo Cursor `cur_ThongBaoLuong` lấy dữ liệu từ JOIN `NhanVien` và `LuongThang`.
-3. Mở Cursor → `FETCH NEXT` vào biến → vòng lặp `WHILE @@FETCH_STATUS = 0` in thông báo → `FETCH NEXT` tiếp.
-4. Đóng (`CLOSE`) và giải phóng (`DEALLOCATE`) Cursor.
+#### 5.1.1 Bài toán và logic đặt ra
+
+**Yêu cầu nghiệp vụ:** Cuối mỗi tháng, bộ phận kế toán cần in **phiếu lương cá nhân** cho từng nhân viên, bao gồm:
+- Họ tên nhân viên
+- Tên phòng ban
+- Lương gộp (gross)
+- Thuế thu nhập cá nhân (TNCN) tính theo biểu lũy tiến
+- Lương thực nhận (net = gross – thuế)
+- Xếp loại thu nhập: `Thấp` / `Trung bình` / `Cao`
+
+**Biểu thuế lũy tiến áp dụng:**
+
+| Bậc | Thu nhập chịu thuế | Thuế suất |
+|-----|-------------------|-----------|
+| 1 | ≤ 5.000.000 đ | 5% |
+| 2 | 5.000.001 – 10.000.000 đ | 10% trên phần vượt |
+| 3 | > 10.000.000 đ | 15% trên phần vượt tiếp theo |
+
+**Tại sao phải dùng CURSOR?** Vì mỗi nhân viên cần một thông điệp `PRINT` **cá nhân hoá riêng biệt**, kèm theo logic rẽ nhánh dựa trên mức lương từng người. Không thể dùng một lệnh `SELECT` hay `UPDATE` thuần tuý để tạo ra từng dòng văn bản khác nhau cho từng người.
+
+---
+
+#### 5.1.2 Code CURSOR đầy đủ
 
 ```sql
-DECLARE @TenNV NVARCHAR(100);
-DECLARE @LuongHienTai MONEY;
+-- =============================================
+-- CURSOR: In phiếu lương cá nhân hóa
+-- Duyệt qua từng nhân viên tháng 05/2026
+-- =============================================
 
--- Khai báo Cursor
-DECLARE cur_ThongBaoLuong CURSOR FOR
-    SELECT nv.[HoTen], lt.[Luong]
-    FROM dbo.[NhanVien] nv
-    JOIN dbo.[LuongThang] lt ON nv.[MaNV] = lt.[MaNV];
+DECLARE
+    @MaNV           INT,
+    @TenNV          NVARCHAR(100),
+    @TenPhong       NVARCHAR(100),
+    @LuongGop       MONEY,
+    @Thue           MONEY,
+    @LuongNet       MONEY,
+    @XepLoai        NVARCHAR(20),
+    @ThongBao       NVARCHAR(500),
+    @DemNV          INT = 0;
 
-OPEN cur_ThongBaoLuong;
-FETCH NEXT FROM cur_ThongBaoLuong INTO @TenNV, @LuongHienTai;
+-- Khai báo CURSOR
+DECLARE cur_PhieuLuong CURSOR
+    LOCAL               -- chỉ dùng trong batch này
+    STATIC              -- snapshot dữ liệu tại thời điểm OPEN, tránh dirty read
+    READ_ONLY           -- không cần cập nhật qua cursor
+    FORWARD_ONLY        -- chỉ duyệt tiến, tối ưu bộ nhớ
+FOR
+    SELECT
+        nv.[MaNV],
+        nv.[HoTen],
+        pb.[TenPhong],
+        lt.[Luong]
+    FROM dbo.[NhanVien]  nv
+    JOIN dbo.[PhongBan]  pb ON nv.[MaPhong] = pb.[MaPhong]
+    JOIN dbo.[LuongThang] lt ON nv.[MaNV]  = lt.[MaNV]
+    WHERE MONTH(lt.[Thang]) = 5
+      AND YEAR(lt.[Thang])  = 2026
+    ORDER BY pb.[TenPhong], nv.[HoTen];
+
+-- ---- Mở Cursor ----
+OPEN cur_PhieuLuong;
+
+PRINT REPLICATE(N'=', 60);
+PRINT N'       BẢNG THÔNG BÁO LƯƠNG THÁNG 05/2026';
+PRINT REPLICATE(N'=', 60);
+
+-- ---- Fetch dòng đầu tiên ----
+FETCH NEXT FROM cur_PhieuLuong
+    INTO @MaNV, @TenNV, @TenPhong, @LuongGop;
+
+-- ---- Vòng lặp duyệt từng nhân viên ----
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    SET @DemNV = @DemNV + 1;
+
+    -- Bước 1: Tính thuế lũy tiến theo 3 bậc
+    SET @Thue = 0;
+
+    IF @LuongGop <= 5000000
+    BEGIN
+        -- Bậc 1: toàn bộ chịu 5%
+        SET @Thue = @LuongGop * 0.05;
+    END
+    ELSE IF @LuongGop <= 10000000
+    BEGIN
+        -- Bậc 1 + Bậc 2
+        SET @Thue = (5000000 * 0.05)
+                  + ((@LuongGop - 5000000) * 0.10);
+    END
+    ELSE
+    BEGIN
+        -- Bậc 1 + Bậc 2 + Bậc 3
+        SET @Thue = (5000000  * 0.05)
+                  + (5000000  * 0.10)
+                  + ((@LuongGop - 10000000) * 0.15);
+    END
+
+    -- Bước 2: Tính lương thực nhận
+    SET @LuongNet = @LuongGop - @Thue;
+
+    -- Bước 3: Xếp loại thu nhập
+    SET @XepLoai =
+        CASE
+            WHEN @LuongGop < 10000000  THEN N'Thấp'
+            WHEN @LuongGop < 12000000  THEN N'Trung bình'
+            ELSE                            N'Cao'
+        END;
+
+    -- Bước 4: In phiếu lương cá nhân
+    PRINT REPLICATE(N'-', 60);
+    SET @ThongBao = N'[' + CAST(@DemNV AS NVARCHAR) + N'] '
+                  + @TenNV + N'  |  ' + @TenPhong;
+    PRINT @ThongBao;
+
+    PRINT N'   Lương gộp    : '
+        + FORMAT(@LuongGop, N'#,##0') + N' VND';
+
+    PRINT N'   Thuế TNCN    : '
+        + FORMAT(@Thue,     N'#,##0') + N' VND';
+
+    PRINT N'   Lương thực nhận: '
+        + FORMAT(@LuongNet, N'#,##0') + N' VND';
+
+    PRINT N'   Xếp loại     : ' + @XepLoai;
+
+    -- Bước 5: In cảnh báo riêng nếu lương thấp
+    IF @XepLoai = N'Thấp'
+        PRINT N'   ⚠ Lưu ý: Nhân viên thuộc diện xem xét hỗ trợ phúc lợi.';
+
+    -- Fetch dòng tiếp theo
+    FETCH NEXT FROM cur_PhieuLuong
+        INTO @MaNV, @TenNV, @TenPhong, @LuongGop;
+END
+
+-- ---- Đóng và giải phóng CURSOR ----
+CLOSE     cur_PhieuLuong;
+DEALLOCATE cur_PhieuLuong;
+
+PRINT REPLICATE(N'=', 60);
+PRINT N'Đã xử lý: ' + CAST(@DemNV AS NVARCHAR) + N' nhân viên.';
+PRINT REPLICATE(N'=', 60);
+GO
+```
+
+---
+
+#### 5.1.3 Phân tích logic từng bước
+
+| Bước | Thao tác | Mục đích |
+|------|----------|----------|
+| **Khai báo biến** | `DECLARE @MaNV, @TenNV, ...` | Chứa dữ liệu từng dòng khi FETCH |
+| **Khai báo Cursor** | `LOCAL STATIC READ_ONLY FORWARD_ONLY` | Tối ưu bộ nhớ; `STATIC` đảm bảo dữ liệu nhất quán trong suốt vòng lặp |
+| **OPEN** | `OPEN cur_PhieuLuong` | SQL Server thực thi câu SELECT và lưu kết quả vào temporary storage |
+| **FETCH NEXT** | Trước vòng lặp và cuối vòng lặp | Lấy một dòng vào biến; `@@FETCH_STATUS = 0` nghĩa là fetch thành công |
+| **Tính thuế** | `IF @LuongGop <= 5M ... ELSE IF ...` | Logic rẽ nhánh riêng cho từng nhân viên – không thể viết trong một `UPDATE` thuần tuý |
+| **PRINT** | Nhiều lệnh `PRINT` khác nhau | Tạo output văn bản cá nhân hoá từng người |
+| **CLOSE / DEALLOCATE** | Sau vòng lặp | **Bắt buộc** – giải phóng tài nguyên khóa bảng và bộ nhớ |
+
+> **Kết quả thực thi**:
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/6443a2d2-93bb-47ba-8471-8222b04cfc14" />
+Tab Messages trong SSMS hiển thị danh sách phiếu lương cá nhân hoá với thuế và xếp loại cho từng nhân viên
+
+---
+
+### 5.2 Giải quyết bài toán tương tự KHÔNG dùng CURSOR
+
+#### 5.2.1 Bài toán tương đương – Tăng lương và gắn xếp loại
+
+Giả sử bài toán đơn giản hơn: **Cập nhật bảng phụ `LuongXepLoai` (tạo mới) ghi nhận xếp loại thu nhập và lương sau thuế của từng nhân viên tháng 05/2026**, không cần in từng dòng ra màn hình.
+
+**Tạo bảng phụ để lưu kết quả:**
+
+```sql
+-- Tạo bảng tạm để lưu kết quả xếp loại
+CREATE TABLE dbo.[LuongXepLoai] (
+    [MaNV]      INT          NOT NULL,
+    [Thang]     DATE         NOT NULL,
+    [LuongGop]  MONEY        NOT NULL,
+    [Thue]      MONEY        NOT NULL,
+    [LuongNet]  MONEY        NOT NULL,
+    [XepLoai]   NVARCHAR(20) NOT NULL,
+    PRIMARY KEY ([MaNV], [Thang])
+);
+GO
+```
+
+**Giải quyết bằng Set-based SQL (không dùng CURSOR):**
+
+```sql
+-- =============================================
+-- SET-BASED: Tính thuế + xếp loại cho TẤT CẢ
+-- nhân viên chỉ bằng một lệnh INSERT...SELECT
+-- =============================================
+INSERT INTO dbo.[LuongXepLoai] ([MaNV], [Thang], [LuongGop], [Thue], [LuongNet], [XepLoai])
+SELECT
+    lt.[MaNV],
+    lt.[Thang],
+    lt.[Luong]                              AS [LuongGop],
+
+    -- Tính thuế lũy tiến bằng CASE WHEN (set-based)
+    CASE
+        WHEN lt.[Luong] <= 5000000
+            THEN lt.[Luong] * 0.05
+        WHEN lt.[Luong] <= 10000000
+            THEN (5000000 * 0.05) + ((lt.[Luong] - 5000000) * 0.10)
+        ELSE
+            (5000000 * 0.05) + (5000000 * 0.10) + ((lt.[Luong] - 10000000) * 0.15)
+    END                                     AS [Thue],
+
+    -- Lương thực nhận
+    lt.[Luong] -
+    CASE
+        WHEN lt.[Luong] <= 5000000
+            THEN lt.[Luong] * 0.05
+        WHEN lt.[Luong] <= 10000000
+            THEN (5000000 * 0.05) + ((lt.[Luong] - 5000000) * 0.10)
+        ELSE
+            (5000000 * 0.05) + (5000000 * 0.10) + ((lt.[Luong] - 10000000) * 0.15)
+    END                                     AS [LuongNet],
+
+    -- Xếp loại
+    CASE
+        WHEN lt.[Luong] < 10000000  THEN N'Thấp'
+        WHEN lt.[Luong] < 12000000  THEN N'Trung bình'
+        ELSE                             N'Cao'
+    END                                     AS [XepLoai]
+
+FROM dbo.[LuongThang] lt
+WHERE MONTH(lt.[Thang]) = 5
+  AND YEAR(lt.[Thang])  = 2026;
+GO
+
+-- Kiểm tra kết quả
+SELECT
+    nv.[HoTen],
+    pb.[TenPhong],
+    lx.[LuongGop],
+    lx.[Thue],
+    lx.[LuongNet],
+    lx.[XepLoai]
+FROM dbo.[LuongXepLoai] lx
+JOIN dbo.[NhanVien]     nv ON lx.[MaNV]    = nv.[MaNV]
+JOIN dbo.[PhongBan]     pb ON nv.[MaPhong] = pb.[MaPhong]
+ORDER BY pb.[TenPhong], lx.[LuongGop] DESC;
+GO
+```
+
+> **Kết quả thực thi**:
+
+<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/7aa4da21-8954-4413-b594-90588c414b20" />
+
+Bảng kết quả SELECT hiển thị đầy đủ HoTen, TenPhong, LuongGop, Thue, LuongNet, XepLoai cho 40 nhân viên
+
+---
+
+#### 5.2.2 So sánh tốc độ thực thi CURSOR vs Set-based
+
+Để đo thời gian, bật **Statistics Time và IO** trước khi chạy cả hai đoạn code:
+
+```sql
+-- Bật đo thời gian và I/O
+SET STATISTICS TIME ON;
+SET STATISTICS IO ON;
+GO
+
+-- ---- Chạy đoạn CURSOR (lặp 40 dòng) ----
+-- (dán lại toàn bộ đoạn code CURSOR ở mục 5.1.2 vào đây)
+-- ...
+
+-- ---- Chạy đoạn Set-based ----
+TRUNCATE TABLE dbo.[LuongXepLoai]; -- reset dữ liệu
+INSERT INTO dbo.[LuongXepLoai] (...) SELECT ...;  -- (code ở trên)
+GO
+
+SET STATISTICS TIME OFF;
+SET STATISTICS IO OFF;
+GO
+```
+
+**Kết quả dự kiến (với 40 bản ghi):**
+
+| Phương pháp | CPU time (ms) | Elapsed time (ms) | Logical reads |
+|-------------|:------------:|:-----------------:|:-------------:|
+| **CURSOR** | ~15–30 ms | ~20–50 ms | ~80–160 reads (40 lần đọc riêng lẻ) |
+| **Set-based** | ~1–3 ms | ~2–5 ms | ~8–12 reads (1 lần quét bảng) |
+
+> **Kết quả thực thi**:
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/754817d3-3767-4819-94be-5131b026d5da" />
+
+Tab Messages trong SSMS hiển thị kết quả STATISTICS TIME và IO – so sánh rõ CPU time và Logical reads giữa CURSOR và Set-based
+
+
+**Kết luận so sánh:**
+- Trên 40 bản ghi, CURSOR đã chậm hơn Set-based khoảng **5–15 lần** về elapsed time.
+- Trên tập dữ liệu lớn (hàng chục ngàn bản ghi), khoảng cách này có thể lên đến **50–100 lần**, vì CURSOR không thể tận dụng tối ưu hóa song song (parallelism) của SQL Server.
+- **Nguyên tắc:** Nếu bài toán có thể biểu diễn bằng một câu SQL tập hợp (Set-based), luôn ưu tiên cách đó.
+
+---
+
+### 5.3 Bài toán chỉ CURSOR mới giải quyết được
+
+#### 5.3.1 Bài toán: Gửi email thông báo lương cá nhân qua Database Mail
+
+**Mô tả:**  
+Sau khi chốt lương tháng 05/2026, hệ thống phải **tự động gửi email** đến địa chỉ email cá nhân của **từng nhân viên**, nội dung email là phiếu lương riêng (họ tên, phòng, lương gộp, thuế, lương net). Mỗi email phải được **render riêng** với tên người nhận và số liệu riêng.
+
+**Tại sao Set-based SQL không làm được?**  
+Gửi email đòi hỏi gọi stored procedure `msdb.dbo.sp_send_dbmail` với tham số khác nhau cho từng người. Không có lệnh `UPDATE` hay `INSERT` nào có thể gọi SP bên ngoài cho từng dòng. Đây là trường hợp **bắt buộc** phải dùng CURSOR hoặc vòng lặp `WHILE`.
+
+---
+
+#### 5.3.2 Chuẩn bị – Thêm cột Email vào bảng NhanVien
+
+```sql
+-- Thêm cột Email vào NhanVien (nếu chưa có)
+ALTER TABLE dbo.[NhanVien]
+    ADD [Email] NVARCHAR(200) NULL;
+GO
+
+-- Cập nhật email mẫu cho 40 nhân viên
+UPDATE dbo.[NhanVien]
+SET [Email] = LOWER(
+        REPLACE([HoTen], N' ', N'.') + N'@company.vn'
+    );
+GO
+
+-- Kiểm tra
+SELECT TOP 5 [MaNV], [HoTen], [Email] FROM dbo.[NhanVien];
+GO
+```
+
+> **Kết quả thực thi**:
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/1d42e78b-68a7-44a8-83ff-a238aa58268c" />
+
+SELECT TOP 5 hiển thị MaNV, HoTen, Email – mỗi nhân viên có địa chỉ email riêng dạng ten.ho@company.vn
+
+---
+
+#### 5.3.3 Code CURSOR gửi email cá nhân hóa
+
+```sql
+-- =============================================
+-- CURSOR: Gửi email thông báo lương cá nhân
+-- Chỉ CURSOR (hoặc WHILE loop) mới làm được!
+-- =============================================
+
+DECLARE
+    @MaNV       INT,
+    @TenNV      NVARCHAR(100),
+    @Email      NVARCHAR(200),
+    @TenPhong   NVARCHAR(100),
+    @LuongGop   MONEY,
+    @Thue       MONEY,
+    @LuongNet   MONEY,
+    @NoiDung    NVARCHAR(MAX),
+    @TieuDe     NVARCHAR(300),
+    @DemGui     INT = 0,
+    @DemLoi     INT = 0;
+
+DECLARE cur_GuiEmail CURSOR
+    LOCAL STATIC READ_ONLY FORWARD_ONLY
+FOR
+    SELECT
+        nv.[MaNV],
+        nv.[HoTen],
+        nv.[Email],
+        pb.[TenPhong],
+        lt.[Luong]
+    FROM dbo.[NhanVien]   nv
+    JOIN dbo.[PhongBan]   pb ON nv.[MaPhong] = pb.[MaPhong]
+    JOIN dbo.[LuongThang] lt ON nv.[MaNV]    = lt.[MaNV]
+    WHERE MONTH(lt.[Thang]) = 5
+      AND YEAR(lt.[Thang])  = 2026
+      AND nv.[Email] IS NOT NULL;     -- chỉ gửi cho NV có email
+
+OPEN cur_GuiEmail;
+FETCH NEXT FROM cur_GuiEmail
+    INTO @MaNV, @TenNV, @Email, @TenPhong, @LuongGop;
 
 WHILE @@FETCH_STATUS = 0
 BEGIN
-    PRINT N'Chào ' + @TenNV + N', mức lương của bạn tháng này là: ' + CAST(@LuongHienTai AS NVARCHAR);
-    
-    FETCH NEXT FROM cur_ThongBaoLuong INTO @TenNV, @LuongHienTai;
+    BEGIN TRY
+        -- Tính thuế lũy tiến (logic riêng từng người)
+        SET @Thue =
+            CASE
+                WHEN @LuongGop <= 5000000
+                    THEN @LuongGop * 0.05
+                WHEN @LuongGop <= 10000000
+                    THEN (5000000 * 0.05) + ((@LuongGop - 5000000) * 0.10)
+                ELSE
+                    (5000000 * 0.05) + (5000000 * 0.10)
+                    + ((@LuongGop - 10000000) * 0.15)
+            END;
+
+        SET @LuongNet = @LuongGop - @Thue;
+
+        -- Render nội dung email HTML cá nhân hoá
+        SET @TieuDe  = N'[Thông báo lương] Tháng 05/2026 – ' + @TenNV;
+        SET @NoiDung = N'<html><body>'
+            + N'<p>Kính gửi <strong>' + @TenNV + N'</strong>,</p>'
+            + N'<p>Phòng: <em>' + @TenPhong + N'</em></p>'
+            + N'<table border="1" cellpadding="5">'
+            + N'<tr><td>Lương gộp</td><td align="right">'
+                + FORMAT(@LuongGop, N'#,##0') + N' VND</td></tr>'
+            + N'<tr><td>Thuế TNCN</td><td align="right">'
+                + FORMAT(@Thue,     N'#,##0') + N' VND</td></tr>'
+            + N'<tr><td><strong>Lương thực nhận</strong></td>'
+                + N'<td align="right"><strong>'
+                + FORMAT(@LuongNet, N'#,##0') + N' VND</strong></td></tr>'
+            + N'</table>'
+            + N'<p>Trân trọng,<br/>Phòng Kế Toán</p>'
+            + N'</body></html>';
+
+        -- Gọi Database Mail để gửi email cho từng người
+        EXEC msdb.dbo.sp_send_dbmail
+            @profile_name  = N'CompanyMailProfile',  -- tên profile Database Mail
+            @recipients    = @Email,
+            @subject       = @TieuDe,
+            @body          = @NoiDung,
+            @body_format   = N'HTML';
+
+        SET @DemGui = @DemGui + 1;
+        PRINT N'✓ Đã gửi email cho: ' + @TenNV + N' (' + @Email + N')';
+
+    END TRY
+    BEGIN CATCH
+        SET @DemLoi = @DemLoi + 1;
+        PRINT N'✗ Lỗi gửi email cho: ' + @TenNV
+            + N' | Error: ' + ERROR_MESSAGE();
+        -- Ghi log lỗi vào bảng nếu cần
+    END CATCH;
+
+    FETCH NEXT FROM cur_GuiEmail
+        INTO @MaNV, @TenNV, @Email, @TenPhong, @LuongGop;
 END
 
-CLOSE cur_ThongBaoLuong;
-DEALLOCATE cur_ThongBaoLuong;
+CLOSE     cur_GuiEmail;
+DEALLOCATE cur_GuiEmail;
+
+PRINT N'--- Kết quả gửi email ---';
+PRINT N'Thành công : ' + CAST(@DemGui  AS NVARCHAR) + N' email';
+PRINT N'Thất bại   : ' + CAST(@DemLoi AS NVARCHAR) + N' email';
+GO
 ```
 
 > **Kết quả thực thi**:
-<img width="1917" height="1079" alt="image" src="https://github.com/user-attachments/assets/15528b7f-a5b4-4edc-9357-686d70bccbef" />
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/4fe2eb60-6c9b-480d-8905-6903667b14f7" />
 
-Tab Messages hiển thị dòng chữ Chào... mức lương của bạn là...
+Tab Messages hiển thị từng dòng "✓ Đã gửi email cho: [Tên]" cho 40 nhân viên và tổng kết cuối cùng
 
 
+---
 
-### 5.2 So sánh với Set-based (Lệnh SQL thông thường)
-Giả sử bài toán là: **Tăng 10% lương cho tất cả nhân viên.**
+#### 5.3.4 Phân tích – Tại sao Set-based SQL không thể thay thế?
 
-**Dùng Cursor**:
-Phải mở con trỏ, lặp qua từng dòng, đọc dữ liệu, cập nhật, rồi chuyển sang dòng tiếp theo (Row-by-Agonizing-Row).
-
-**Dùng Set-based (UPDATE)**:
 ```sql
-UPDATE dbo.[LuongThang]
-SET [Luong] = [Luong] * 1.1;
+-- Thử viết Set-based để gửi email – KHÔNG THỂ LÀM ĐƯỢC
+-- Ví dụ sai này minh hoạ giới hạn của Set-based:
+
+SELECT
+    nv.[Email],
+    N'Lương của bạn: ' + CAST(lt.[Luong] AS NVARCHAR) AS [NoiDung],
+    -- ❌ Không có cách nào gọi sp_send_dbmail trong SELECT!
+    -- ❌ sp_send_dbmail là Stored Procedure, không phải Function
+    -- ❌ SQL Server không cho phép gọi SP trong SELECT/UPDATE/INSERT
+    msdb.dbo.sp_send_dbmail(...)   -- CÚ PHÁP NÀY KHÔNG HỢP LỆ
+FROM dbo.[NhanVien] nv
+JOIN dbo.[LuongThang] lt ON nv.[MaNV] = lt.[MaNV];
 ```
-![Uploading image.png…]()
 
+**Lý do CURSOR là bắt buộc:**
 
-**So sánh hiệu năng**:
-- **Tốc độ**: Lệnh `UPDATE` (Set-based) xử lý toàn bộ tập hợp dữ liệu cùng một lúc, nhanh hơn Cursor từ 10-100 lần trên tập dữ liệu lớn vì nó tối ưu hóa I/O và Transaction Log.
-- **Tài nguyên**: Cursor khóa tài nguyên lâu hơn và tốn nhiều RAM/CPU để duy trì trạng thái từng dòng.
+| Ràng buộc | Giải thích |
+|-----------|-----------|
+| `sp_send_dbmail` là Stored Procedure | Chỉ được gọi bằng `EXEC`, không thể dùng trong `SELECT`, `UPDATE`, `WHERE` |
+| Mỗi email có nội dung HTML khác nhau | Cần biến chuỗi riêng cho từng người – không thể vector hoá |
+| Cần xử lý lỗi độc lập từng email | `BEGIN TRY / CATCH` bên trong vòng lặp; nếu 1 email lỗi vẫn tiếp tục gửi cho người khác |
+| Cần đếm thành công / thất bại | Biến đếm `@DemGui`, `@DemLoi` chỉ cập nhật được trong vòng lặp |
 
-**Khi nào nên dùng Cursor?**
-Nên dùng Cursor khi bài toán **không thể giải quyết bằng SQL Set-based**, ví dụ:
-- Gọi API bên ngoài (External Stored Procedure) cho từng dòng dữ liệu.
-- Bài toán gửi Email cá nhân hóa (đọc thông tin người dùng, render template mail riêng, đính kèm file PDF hóa đơn lương khác biệt cho từng người rồi gọi hàm Database Mail gửi đi). Trong trường hợp này, `UPDATE` không thể gửi email, bắt buộc phải dùng vòng lặp / Cursor.
+---
 
-> **Kết quả thực thi**:
-> ![Ảnh chụp màn hình: So sánh thời gian thực thi (Execution Plan) giữa Cursor và SQL Command]
+#### 5.3.5 Tổng kết – Khi nào dùng CURSOR, khi nào dùng Set-based
+
+| Tiêu chí | Set-based SQL | CURSOR |
+|----------|:------------:|:------:|
+| Tốc độ xử lý dữ liệu lớn | ✅ Rất nhanh | ❌ Chậm (Row-by-Row) |
+| Cập nhật hàng loạt (INSERT/UPDATE/DELETE) | ✅ Tối ưu | ❌ Không cần thiết |
+| Tính toán phức tạp cùng loại cho mọi dòng | ✅ Dùng CASE/CROSS APPLY | ✅ Cũng làm được |
+| Gọi Stored Procedure riêng cho từng dòng | ❌ Không thể | ✅ Bắt buộc |
+| Gửi email / gọi API bên ngoài từng dòng | ❌ Không thể | ✅ Bắt buộc |
+| In văn bản cá nhân hoá từng dòng (PRINT) | ❌ Không thể | ✅ Bắt buộc |
+| Xử lý lỗi độc lập từng dòng | ❌ Khó | ✅ TRY/CATCH trong vòng lặp |
+| Bài toán phụ thuộc kết quả dòng trước | ❌ Rất khó | ✅ Có thể dùng biến tích luỹ |
+
+> **Kết luận:** CURSOR không phải lựa chọn hiệu quả cho bài toán xử lý tập hợp dữ liệu thuần tuý, nhưng là **công cụ không thể thiếu** khi logic yêu cầu tương tác bên ngoài SQL (gọi API, gửi email, ghi file, gọi OS), xử lý tuần tự có trạng thái, hoặc in output cá nhân hoá từng dòng.
